@@ -130,6 +130,19 @@ The .gitignore file specifies which files and directories should be ignored by G
 - **Objective:** Add new volunteer records.
 - **SQL Operation:** INSERT into the "volunteers" table.
 
-```sql
-INSERT INTO volunteers (column1, column2, ...)
-VALUES (value1, value2, ...);
+### Volunteer Authentication
+- **Objective:** Authenticate volunteers by verifying their credentials.
+- **SQL Operation:** SELECT from the database.
+
+### Volunteer Skill Set
+- **Objective:** Track the skills of each volunteer.
+- **SQL Operation:** UPDATE the "skills" table.
+
+### Volunteer Profile Management
+- **Objective:** Allow volunteers to manage their profiles.
+- **SQL Operation:** UPDATE profiles.
+
+### Password Reset for Volunteers
+- **Objective:** Reset volunteer passwords.
+- **SQL Operation:** UPDATE the "volunteers" table.
+
