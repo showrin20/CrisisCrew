@@ -1,6 +1,4 @@
 # CrisisCrew
-The aim of this project is to create a comprehensive Disaster Management System that provides practical solutions to coordinate volunteer efforts, resource allocation, and real-time disaster event tracking.
-# CrisisCrew
 
 CrisisCrew is a disaster management and volunteer coordination system designed to streamline disaster response efforts. This repository contains the source code for both the client and admin panel components.
 
