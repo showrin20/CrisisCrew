@@ -108,22 +108,6 @@ The database directory contains database-related files:
 
 The public directory contains public assets used by the project.
 
-### `.gitignore`
-
-The .gitignore file specifies which files and directories should be ignored by Git.
-
-## Usage
-
-[Include instructions on how to use and run your project here.]
-
-## License
-
-[Specify the project's license here, if applicable.]
-
-## Acknowledgments
-
-[You can acknowledge individuals, libraries, or resources that you want to credit.]
-
 ## Project Objectives
 
 ### Volunteer Registration
