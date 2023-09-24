@@ -142,7 +142,7 @@ VALUES (value1, value2, ...);
 SELECT column1, column2, ...
 FROM volunteers
 WHERE condition;
-
+```
 ### Volunteer Skill Set
 - **Objective:** Track the skills of each volunteer.
 - **SQL Operation:**
@@ -150,7 +150,7 @@ WHERE condition;
 UPDATE skills
 SET skill1 = value1, skill2 = value2, ...
 WHERE volunteer_id = 'volunteer_id';
-
+```
 
 ### Volunteer Profile Management
 - **Objective:** Allow volunteers to manage their profiles.
@@ -159,7 +159,7 @@ WHERE volunteer_id = 'volunteer_id';
 UPDATE profiles
 SET field1 = value1, field2 = value2, ...
 WHERE volunteer_id = 'volunteer_id';
-
+```
 ### Password Reset for Volunteers
 - **Objective:** Reset volunteer passwords.
 - **SQL Operation:**
@@ -167,5 +167,4 @@ WHERE volunteer_id = 'volunteer_id';
 UPDATE volunteers
 SET password = 'new_password'
 WHERE volunteer_id = 'volunteer_id';
-
-
+```
