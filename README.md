@@ -220,4 +220,26 @@ INSERT INTO volunteers_events (volunteer_id, event_id)
 VALUES (@volunteer_id, @event_id);
 
 ```
+## Responded Volunteer Access to Event Details" feature:
 
+**Objective: Allow responded volunteers to access event details.**
+
+SQL Code:
+```sql
+-- Database Modification (Add event_details field)
+ALTER TABLE events ADD COLUMN event_details TEXT;
+
+-- Admin Panel - Update Event Details
+-- Example: Update event details for Event ID 1
+UPDATE events
+SET event_details = 'Detailed information about the event goes here.'
+WHERE event_id = 1;
+
+-- Client Panel - Fetch Event Details
+-- Example: Fetch event details for Event ID 1
+SELECT event_id, event_type, location, event_date, required_skills, resource_needs, event_details
+FROM events
+WHERE event_id = 1;
+
+
+```
