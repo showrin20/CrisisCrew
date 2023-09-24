@@ -128,8 +128,10 @@ The .gitignore file specifies which files and directories should be ignored by G
 
 ### Volunteer Registration
 - **Objective:** Add new volunteer records.
-- **SQL Operation:** INSERT into the "volunteers" table.
-
+- **SQL Operation:**
+- ```sql 
+INSERT INTO volunteers (column1, column2, ...)
+VALUES (value1, value2, ...);
 ### Volunteer Authentication
 - **Objective:** Authenticate volunteers by verifying their credentials.
 - **SQL Operation:** SELECT from the database.
