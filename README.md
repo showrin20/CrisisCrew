@@ -1,6 +1,7 @@
 # CrisisCrew
 
-CrisisCrew is a comprehensive disaster management and volunteer coordination platform designed to streamline disaster response efforts. Our project aims to empower both volunteers and administrators with the tools they need to effectively manage and respond to crisis situations
+CrisisCrew is a comprehensive disaster management and volunteer coordination platform designed to streamline disaster response efforts. Our project aims to empower both volunteers and administrators with the tools they need to effectively manage and respond to crisis situations.
+
 ## Directory Structure
 
 The project is organized into the following directories:
@@ -103,46 +104,6 @@ The database directory contains database-related files:
 - `seeds/`: Seed data for the database.
 - `schema.sql`: SQL schema for the database.
 
-- -- Volunteer Registration
--- Objective: Add new volunteer records.
--- SQL Operation: INSERT into the "volunteers" table.
-
-INSERT INTO volunteers (column1, column2, ...)
-VALUES (value1, value2, ...);
-
--- Volunteer Authentication
--- Objective: Authenticate volunteers by verifying their credentials.
--- SQL Operation: SELECT from the database.
-
-SELECT column1, column2, ...
-FROM volunteers
-WHERE condition;
-
--- Volunteer Skill Set
--- Objective: Track the skills of each volunteer.
--- SQL Operation: UPDATE the "skills" table.
-
-UPDATE skills
-SET skill1 = value1, skill2 = value2, ...
-WHERE volunteer_id = 'volunteer_id';
-
--- Volunteer Profile Management
--- Objective: Allow volunteers to manage their profiles.
--- SQL Operation: UPDATE profiles.
-
-UPDATE profiles
-SET field1 = value1, field2 = value2, ...
-WHERE volunteer_id = 'volunteer_id';
-
--- Password Reset for Volunteers
--- Objective: Reset volunteer passwords.
--- SQL Operation: UPDATE the "volunteers" table.
-
-UPDATE volunteers
-SET password = 'new_password'
-WHERE volunteer_id = 'volunteer_id';
-
-
 ### `public/`
 
 The public directory contains public assets used by the project.
@@ -150,14 +111,6 @@ The public directory contains public assets used by the project.
 ### `.gitignore`
 
 The .gitignore file specifies which files and directories should be ignored by Git.
-
-### `package.json`
-
-The package.json file contains project-wide dependencies and scripts.
-
-### `README.md`
-
-This README file provides an overview of the CrisisCrew project and its directory structure.
 
 ## Usage
 
@@ -170,3 +123,13 @@ This README file provides an overview of the CrisisCrew project and its director
 ## Acknowledgments
 
 [You can acknowledge individuals, libraries, or resources that you want to credit.]
+
+## Project Objectives
+
+### Volunteer Registration
+- **Objective:** Add new volunteer records.
+- **SQL Operation:** INSERT into the "volunteers" table.
+
+```sql
+INSERT INTO volunteers (column1, column2, ...)
+VALUES (value1, value2, ...);
