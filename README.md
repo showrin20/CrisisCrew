@@ -131,9 +131,20 @@ WHERE condition;
 - **Objective:** Track the skills of each volunteer.
 - **SQL Operation:**
 ```sql
-UPDATE skills
-SET skill1 = value1, skill2 = value2, ...
-WHERE volunteer_id = 'volunteer_id';
+CREATE TABLE skills (
+    skill_id SERIAL PRIMARY KEY,
+    volunteer_id INT NOT NULL,
+    skill_name VARCHAR(50) NOT NULL CHECK (skill_name IN ('First Aid', 'Search and Rescue', 'Medical', 'Logistics', 'Communication', 'Psychological Support', 'Firefighting', 'Navigation')),
+    proficiency_level INT CHECK (proficiency_level >= 1 AND proficiency_level <= 10),
+    -- Add other columns as needed
+);
+
+-- Insert skills data for volunteers
+
+-- Skill data for Volunteer 1
+INSERT INTO skills (volunteer_id, skill_name, proficiency_level)
+VALUES (1, 'First Aid', 4),
+       (1, 'Search and Rescue', 3);
 ```
 
 ### Volunteer Profile Management
