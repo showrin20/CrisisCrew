@@ -205,3 +205,37 @@ INNER JOIN resources_events re ON r.resource_id = re.resource_id
 WHERE re.event_id = 1;
 
 ```
+##Event Notification System
+**Objective: Implement Event Notification System for Disaster Response**
+```sql
+-- Notification Process
+-- When a new disaster event is created, notify volunteers matching the required skills and location.
+
+-- Insert a new disaster event (example)
+INSERT INTO events (event_type, location, event_date, required_skills)
+VALUES ('Flood', 'City A', '2023-09-30 14:00:00', 'Medical, Rescue');
+
+-- Identify volunteers matching the event's required skills and location
+-- Assuming you have a "volunteers" table with columns for volunteer_id, volunteer_name, skills, and location.
+-- This is a simplified example, and you may have additional criteria to consider.
+
+DECLARE @event_id INT;
+SET @event_id = SCOPE_IDENTITY(); -- Get the ID of the newly created event
+
+INSERT INTO notifications (volunteer_id, event_id)
+SELECT v.volunteer_id, @event_id
+FROM volunteers v
+WHERE CHARINDEX(v.skills, (SELECT required_skills FROM events WHERE event_id = @event_id)) > 0
+  AND v.location = (SELECT location FROM events WHERE event_id = @event_id);
+
+-- Volunteers can accept the request and are added as volunteers for that specific disaster event.
+
+-- When a volunteer accepts the request, insert them into the volunteers_events junction table (example).
+-- Assuming you have a "volunteers_events" table with columns for volunteer_id and event_id.
+-- You may also need to update the event's status or track volunteer responses.
+
+INSERT INTO volunteers_events (volunteer_id, event_id)
+VALUES (@volunteer_id, @event_id);
+
+```
+
