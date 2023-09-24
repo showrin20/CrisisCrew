@@ -157,22 +157,21 @@ WHERE volunteer_id = 'volunteer_id';
 - **Objective:** Log new disaster events.
 - **SQL Operation:**
 ```sql
+-- Admin Panel --
+
 -- Event Logging (INSERT)
 -- Objective: Log new disaster events.
-
 INSERT INTO events (event_type, location, event_date, required_skills, resource_needs)
 VALUES ('Flood', 'City A', '2023-09-30 14:00:00', 'Medical, Logistics', 'Medical supplies, Volunteers');
 
 -- Event Visualization (SELECT)
 -- Objective: Display event data on maps.
-
 SELECT event_id, event_type, location, event_date
 FROM events
 WHERE event_date >= NOW();
 
 -- Event History (SELECT)
 -- Objective: Access historical data.
-
 SELECT event_id, event_type, location, event_date, required_skills
 FROM events
 WHERE event_date < NOW()
@@ -181,15 +180,15 @@ LIMIT 10;
 
 -- Event Updates (UPDATE)
 -- Objective: Modify ongoing or past event details.
-
 UPDATE events
 SET location = 'City B', required_skills = 'Medical, Logistics, Search and Rescue'
 WHERE event_id = 1;
 
+-- Client Panel --
+
 -- List of Volunteers Who Responded
 -- Assuming you have a volunteers_events junction table to track volunteer responses.
 -- This is a simplified example. You may need to join multiple tables to get more details.
-
 SELECT v.volunteer_id, v.volunteer_name, v.skills
 FROM volunteers v
 INNER JOIN volunteers_events ve ON v.volunteer_id = ve.volunteer_id
@@ -198,11 +197,10 @@ WHERE ve.event_id = 1;
 -- Resource Needs
 -- Assuming you have a resources_events junction table to track resource needs.
 -- This is a simplified example. You may need to join multiple tables to get more details.
-
 SELECT r.resource_id, r.resource_name, r.quantity_needed
 FROM resources r
 INNER JOIN resources_events re ON r.resource_id = re.resource_id
-WHERE re.event_id = 1;
+WHERE re.event_id = 1
 
 ```
 ## Event Notification System
