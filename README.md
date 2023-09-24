@@ -152,9 +152,9 @@ VALUES (1, 'First Aid', 4),
 - **Objective:** Allow volunteers to manage their profiles.
 - **SQL Operation:**
 ```sql
-UPDATE profiles
-SET field1 = value1, field2 = value2, ...
-WHERE volunteer_id = 'volunteer_id';
+UPDATE volunteers
+SET volunteer_name = 'Updated Name', email = 'updated_email@example.com'
+WHERE volunteer_id = 1;
 ```
 ### Password Reset for Volunteers
 - **Objective:** Reset volunteer passwords.
@@ -162,7 +162,7 @@ WHERE volunteer_id = 'volunteer_id';
 ```sql
 UPDATE volunteers
 SET password = 'new_password'
-WHERE volunteer_id = 'volunteer_id';
+WHERE volunteer_id = 1;
 ```
 ### Disaster Event Tracking
 #### Event Logging
