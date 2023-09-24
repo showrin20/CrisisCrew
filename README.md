@@ -137,17 +137,35 @@ VALUES (value1, value2, ...);
 
 ### Volunteer Authentication
 - **Objective:** Authenticate volunteers by verifying their credentials.
-- **SQL Operation:** SELECT from the database.
+- **SQL Operation:**
+```sql
+SELECT column1, column2, ...
+FROM volunteers
+WHERE condition;
 
 ### Volunteer Skill Set
 - **Objective:** Track the skills of each volunteer.
-- **SQL Operation:** UPDATE the "skills" table.
+- **SQL Operation:**
+```sql
+UPDATE skills
+SET skill1 = value1, skill2 = value2, ...
+WHERE volunteer_id = 'volunteer_id';
+
 
 ### Volunteer Profile Management
 - **Objective:** Allow volunteers to manage their profiles.
-- **SQL Operation:** UPDATE profiles.
+- **SQL Operation:**
+```sql
+UPDATE profiles
+SET field1 = value1, field2 = value2, ...
+WHERE volunteer_id = 'volunteer_id';
 
 ### Password Reset for Volunteers
 - **Objective:** Reset volunteer passwords.
-- **SQL Operation:** UPDATE the "volunteers" table.
+- **SQL Operation:**
+```sql
+UPDATE volunteers
+SET password = 'new_password'
+WHERE volunteer_id = 'volunteer_id';
+
 
