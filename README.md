@@ -220,7 +220,7 @@ INSERT INTO volunteers_events (volunteer_id, event_id)
 VALUES (@volunteer_id, @event_id);
 
 ```
-## Responded Volunteer Access to Event Details" feature:
+## Responded Volunteer Access to Event Details 
 
 **Objective: Allow responded volunteers to access event details.**
 
