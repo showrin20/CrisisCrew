@@ -205,7 +205,7 @@ INNER JOIN resources_events re ON r.resource_id = re.resource_id
 WHERE re.event_id = 1;
 
 ```
-##Event Notification System
+## Event Notification System
 **Objective: Implement Event Notification System for Disaster Response**
 ```sql
 -- Notification Process
