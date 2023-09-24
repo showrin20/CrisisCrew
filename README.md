@@ -1,7 +1,5 @@
 # CrisisCrew
 
-# CrisisCrew
-
 CrisisCrew is a project that aims to [describe the purpose of your project].
 
 ## Directory Structure
@@ -124,4 +122,12 @@ This README file provides an overview of the CrisisCrew project and its director
 
 ## Usage
 
-[Include instructions on how to use and run your project
+[Include instructions on how to use and run your project here.]
+
+## License
+
+[Specify the project's license here, if applicable.]
+
+## Acknowledgments
+
+[You can acknowledge individuals, libraries, or resources that you want to credit.]
