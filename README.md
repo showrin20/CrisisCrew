@@ -1,7 +1,6 @@
 # CrisisCrew
 
-CrisisCrew is a project that aims to [describe the purpose of your project].
-
+CrisisCrew is a comprehensive disaster management and volunteer coordination platform designed to streamline disaster response efforts. Our project aims to empower both volunteers and administrators with the tools they need to effectively manage and respond to crisis situations
 ## Directory Structure
 
 The project is organized into the following directories:
