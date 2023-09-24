@@ -115,17 +115,18 @@ The public directory contains public assets used by the project.
 -- Volunteer Registration
 - **SQL Operation:**
 ```sql
-INSERT INTO volunteers (column1, column2, ...)
-VALUES (value1, value2, ...);
-
-
-### Volunteer Authentication
-- **Objective:** Authenticate volunteers by verifying their credentials.
-- **SQL Operation:**
-```sql
-SELECT column1, column2, ...
-FROM volunteers
-WHERE condition;
+CREATE TABLE volunteers (
+  volunteer_id SERIAL PRIMARY KEY,
+  volunteer_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO volunteers (volunteer_name, email, password) VALUES
+  ('Volunteer 1', 'volunteer1@example.com', 'password1'),
+  ('Volunteer 2', 'volunteer2@example.com', 'password2'),
+  ('Volunteer 3', 'volunteer3@example.com', 'password3'),
+  ('Volunteer 4', 'volunteer4@example.com', 'password4')
 ```
 ### Volunteer Skill Set
 - **Objective:** Track the skills of each volunteer.
