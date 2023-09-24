@@ -103,6 +103,46 @@ The database directory contains database-related files:
 - `seeds/`: Seed data for the database.
 - `schema.sql`: SQL schema for the database.
 
+- -- Volunteer Registration
+-- Objective: Add new volunteer records.
+-- SQL Operation: INSERT into the "volunteers" table.
+
+INSERT INTO volunteers (column1, column2, ...)
+VALUES (value1, value2, ...);
+
+-- Volunteer Authentication
+-- Objective: Authenticate volunteers by verifying their credentials.
+-- SQL Operation: SELECT from the database.
+
+SELECT column1, column2, ...
+FROM volunteers
+WHERE condition;
+
+-- Volunteer Skill Set
+-- Objective: Track the skills of each volunteer.
+-- SQL Operation: UPDATE the "skills" table.
+
+UPDATE skills
+SET skill1 = value1, skill2 = value2, ...
+WHERE volunteer_id = 'volunteer_id';
+
+-- Volunteer Profile Management
+-- Objective: Allow volunteers to manage their profiles.
+-- SQL Operation: UPDATE profiles.
+
+UPDATE profiles
+SET field1 = value1, field2 = value2, ...
+WHERE volunteer_id = 'volunteer_id';
+
+-- Password Reset for Volunteers
+-- Objective: Reset volunteer passwords.
+-- SQL Operation: UPDATE the "volunteers" table.
+
+UPDATE volunteers
+SET password = 'new_password'
+WHERE volunteer_id = 'volunteer_id';
+
+
 ### `public/`
 
 The public directory contains public assets used by the project.
