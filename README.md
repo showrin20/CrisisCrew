@@ -78,9 +78,9 @@ CrisisCrew/
 
 ```
 
-### Project Database Schema:
+## Project Database Schema:
 
-## Volunteer Registration
+### Volunteer Registration
 - **Objective:** Add new volunteer records.
 -- Volunteer Registration
 - **SQL Operation:**
@@ -98,7 +98,7 @@ INSERT INTO volunteers (volunteer_name, email, password) VALUES
   ('Volunteer 3', 'volunteer3@example.com', 'password3'),
   ('Volunteer 4', 'volunteer4@example.com', 'password4')
 ```
-## Volunteer Skill Set
+### Volunteer Skill Set
 - **Objective:** Track the skills of each volunteer.
 - **SQL Operation:**
 ```sql
@@ -118,7 +118,7 @@ VALUES (1, 'First Aid', 4),
        (1, 'Search and Rescue', 3);
 ```
 
-## Volunteer Profile Management
+### Volunteer Profile Management
 - **Objective:** Allow volunteers to manage their profiles.
 - **SQL Operation:**
 ```sql
@@ -126,7 +126,7 @@ UPDATE volunteers
 SET volunteer_name = 'Updated Name', email = 'updated_email@example.com'
 WHERE volunteer_id = 1;
 ```
-## Password Reset for Volunteers
+### Password Reset for Volunteers
 - **Objective:** Reset volunteer passwords.
 - **SQL Operation:**
 ```sql
@@ -134,7 +134,7 @@ UPDATE volunteers
 SET password = 'new_password'
 WHERE volunteer_id = 1;
 ```
-## Disaster Event Tracking
+### Disaster Event Tracking
 ### Event Logging
 - **Objective:** Log new disaster events.
 - **SQL Operation:**
@@ -169,7 +169,7 @@ VALUES (1, 1, true); -- Example: Volunteer ID 1 accepts Event ID 1
 
 
 ```
-## Event Notification System
+### Event Notification System
 **Objective: Implement Event Notification System for Disaster Response**
 ```sql
 -- Notification Process
@@ -202,7 +202,7 @@ INSERT INTO volunteers_events (volunteer_id, event_id)
 VALUES (@volunteer_id, @event_id);
 
 ```
-## Responded Volunteer Access to Event Details 
+### Responded Volunteer Access to Event Details 
 
 **Objective: Allow responded volunteers to access event details.**
 
@@ -225,7 +225,7 @@ WHERE event_id = 1;
 
 
 ```
-## Volunteer Donation Payment Gateway with Stripe
+### Volunteer Donation Payment Gateway with Stripe
 **Objective: The objective of this feature is to enable volunteers to make donations securely through the payment gateway using Stripe. The system should record each donation and its status for transparency and tracking purposes.**
 ```sql
 -- Fetch volunteer information based on the volunteer's email (example: 'volunteer@example.com')
