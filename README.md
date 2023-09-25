@@ -95,7 +95,7 @@ npm start
 # Start the client (in a new terminal)
 cd ../client
 npm start
-``bash
+```
 
 ## Project Database Schema:
 
