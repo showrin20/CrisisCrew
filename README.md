@@ -20,7 +20,7 @@ CrisisCrew/
 │   │   │   ├── VolunteerProfileManagement.js        #Component for managing volunteer profiles.
 │   │   │   ├── PasswordResetForVolunteers.js        #Component for resetting volunteer passwords.
 │   │   │   ├── PaymentGatewayIntegration.js         #Component for payment gateway integration.
-│   │   │   └── ...
+│   │   │   └── ClientLoginLogout.js 
 │   │   ├── App.js    #The main application component.
 │   │   └── index.js  # Entry point for the React application 
 │   ├── package.json  #Contains client-specific dependencies and scripts.
@@ -55,7 +55,15 @@ CrisisCrew/
 │   ├── server.js #Entry point for the server.
 │   ├── package.json
 │   └── ...
-│
+│── common/
+│   ├── public/
+│   │   └── index.html
+│   │   └── ... (other static assets)
+│   ├── src/
+│   │   ├── components/
+│   │      └── Homepage.js          # Common homepage component.
+│   │      └── ...
+│   └── ...
 ├── admin-panel/
 │   ├── admin-panel-frontend/
 │   │   ├── public/
@@ -65,7 +73,7 @@ CrisisCrew/
 │   │   │   │   ├── AdminDashboard.js #Component for the admin dashboard.
 │   │   │   │   ├── EventTracking.js #Component for event tracking
 │   │   │   │   ├── UserManagement.js # Component for user management.
-│   │   │   │   └── ...
+│   │   │   │   └── AdminLoginLogout.js 
 │   │   ├── package.json
 │   └── ...
 │
