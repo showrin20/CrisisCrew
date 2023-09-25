@@ -79,20 +79,14 @@ CrisisCrew/
 ## Run The Project
 **tech stack: MySQL, Reactjs, nodejs ,expressjs**
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/your-project.git
-# Navigate to the project directory
-cd your-project
-# Install server-side dependencies (Node.js and Express.js)
+git clone https://github.com/showrin20/CrisisCrew.git
+cd CrisisCrew
 cd server
 npm install
-# Install client-side dependencies (React)
 cd ../client
 npm install
-# Start the server
 cd ../server
 npm start
-# Start the client (in a new terminal)
 cd ../client
 npm start
 ```
