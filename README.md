@@ -5,6 +5,80 @@ CrisisCrew is a comprehensive disaster management and volunteer coordination pla
 ## Directory Structure
 
 The project is organized into the following directories:
+```java
+CrisisCrew/
+│
+├── client/
+│   ├── public/
+│   │   └── index.html
+│   │   └── ... (other static assets)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── VolunteerRegistration.js
+│   │   │   ├── VolunteerAuthentication.js
+│   │   │   ├── VolunteerSkillSet.js
+│   │   │   ├── VolunteerProfileManagement.js
+│   │   │   ├── PasswordResetForVolunteers.js
+│   │   │   ├── PaymentGatewayIntegration.js
+│   │   │   └── ...
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── ...
+│
+├── server/
+│   ├── routes/
+│   │   ├── api/
+│   │   │   ├── auth.js
+│   │   │   ├── user.js
+│   │   │   ├── admin.js
+│   │   │   ├── event.js
+│   │   │   └── ...
+│   │   ├── controllers/
+│   │   │   ├── userController.js
+│   │   │   ├── adminController.js
+│   │   │   ├── eventController.js
+│   │   │   └── ...
+│   │   ├── middleware/
+│   │   │   ├── authMiddleware.js
+│   │   │   └── ...
+│   │   └── ...
+│   ├── config/
+│   │   ├── dbConfig.js
+│   │   └── ...
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Admin.js
+│   │   ├── Event.js
+│   │   └── ...
+│   ├── app.js
+│   ├── server.js
+│   ├── package.json
+│   └── ...
+│
+├── admin-panel/
+│   ├── admin-panel-frontend/
+│   │   ├── public/
+│   │   │   └── ... (static assets)
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   │   ├── AdminDashboard.js
+│   │   │   │   ├── EventTracking.js
+│   │   │   │   ├── UserManagement.js
+│   │   │   │   └── ...
+│   │   ├── package.json
+│   └── ...
+│
+├── database/
+│   ├── migrations/
+│   ├── seeds/
+│   ├── schema.sql
+│
+└── public/
+
+```
+
+
 
 ### `client/`
 
