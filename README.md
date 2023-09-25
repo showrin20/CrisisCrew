@@ -75,7 +75,7 @@ CrisisCrew/
 │   ├── schema.sql
 │
 └── public/
-
+```
 ## Run The Project
 **tech stack: MySQL, Reactjs, nodejs ,expressjs**
 ```bash
