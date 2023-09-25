@@ -77,19 +77,8 @@ CrisisCrew/
 └── public/
 
 ```
-### `database/`
 
-The database directory contains database-related files:
-
-- `migrations/`: Database migration scripts.
-- `seeds/`: Seed data for the database.
-- `schema.sql`: SQL schema for the database.
-
-### `public/`
-
-The public directory contains public assets used by the project.
-
-## Project Objectives
+## Project Database Schema:
 
 ### Volunteer Registration
 - **Objective:** Add new volunteer records.
