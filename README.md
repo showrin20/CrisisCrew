@@ -225,3 +225,42 @@ WHERE event_id = 1;
 
 
 ```
+### Volunteer Donation Payment Gateway with Stripe
+**Objective: The objective of this feature is to enable volunteers to make donations securely through the payment gateway using Stripe. The system should record each donation and its status for transparency and tracking purposes.**
+```sql
+-- Fetch volunteer information based on the volunteer's email (example: 'volunteer@example.com')
+SELECT volunteer_id, volunteer_name, email, registration_date
+FROM volunteers
+WHERE email = 'volunteer@example.com';
+-- Create a table to store payment transactions
+CREATE TABLE payment_transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    volunteer_id INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    payment_status ENUM('Pending', 'Completed', 'Failed') NOT NULL,
+    stripe_charge_id VARCHAR(255) NOT NULL,
+    -- Add other relevant columns as needed
+);
+
+-- Create a table to store payment methods (e.g., credit cards)
+CREATE TABLE payment_methods (
+    method_id INT AUTO_INCREMENT PRIMARY KEY,
+    volunteer_id INT NOT NULL,
+    cardholder_name VARCHAR(255) NOT NULL,
+    card_number VARCHAR(16) NOT NULL,
+    expiration_month INT NOT NULL,
+    expiration_year INT NOT NULL,
+    cvv VARCHAR(4) NOT NULL,
+    -- Add other relevant columns as needed
+);
+
+-- Create foreign key constraints for the payment transactions and payment methods
+ALTER TABLE payment_transactions
+ADD FOREIGN KEY (volunteer_id)
+REFERENCES volunteers(volunteer_id);
+
+ALTER TABLE payment_methods
+ADD FOREIGN KEY (volunteer_id)
+REFERENCES volunteers(volunteer_id);
+```
