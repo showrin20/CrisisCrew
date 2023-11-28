@@ -12,7 +12,11 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="login">
+  <body
+    class="login"
+    background="images/new.jpeg"
+    style="background-repeat: no-repeat; background-size: cover"
+  >
     <section style="margin: auto; margin-bottom: 50px">
       <header style="text-align: center">
         <h3 style="color: aliceblue; font-family: Google Sans">
@@ -34,7 +38,7 @@
               <hr />
 
               <!-- Added border utility class 'border' and padding 'p-4' -->
-              <form action="views\pages\homepage.html">
+              <form action="index.html">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email address</label>
                   <input
@@ -48,9 +52,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label"
-                    >Create password</label
-                  >
+                  <label for="password" class="form-label">Password</label>
                   <input
                     type="password"
                     class="form-control"
@@ -63,7 +65,13 @@
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary bg-lg">
-                  Submit Now
+                  <!-- just a placeholder for navigation will be removed later -->
+                  <a
+                    href="client_dashboard.html"
+                    style="text-decoration: none; color: aliceblue"
+                  >
+                    Submit Now</a
+                  >
                 </button>
               </form>
             </div>

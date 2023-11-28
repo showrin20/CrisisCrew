@@ -37,17 +37,6 @@
   font-family: "Google Sans";
   color: #333;
 }
-.login {
-  position: relative; /* Required for absolute positioning of child elements */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.login {
-  background-image: url(/frontend/images/Untitled.jpeg);
-  /* ...other styles */
-}
 
 .about {
   position: relative;
@@ -178,4 +167,37 @@
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+
+.sidebar {
+  background-color: #1f1c3b;
+  padding: 20px;
+  color: aliceblue;
+}
+
+.sidebar a {
+  color: aliceblue;
+  text-decoration: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 15px;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #007bff;
+  text-decoration: none;
+  /* Change text color to blue on hover */
+  background-color: white;
+  /* Change background to white on hover */
+}
+
+
+
+.welcome-message {
+  color: black;
+  font-family: "Google Sans";
+  margin: 30px;
+  padding: 30px;
 }
