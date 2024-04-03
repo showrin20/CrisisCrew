@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mission Planner</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <style>
+      #mapid {
+        height: 400px;
+      }
+      .waypoint-list {
+        margin-top: 10px;
+      }
+      #mapid {
+        height: 90vh;
+        width: 100%;
+      }
+      .waypoint-list {
+        list-style-type: none;
+      }
+
+      #waypoint-form {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Spacing between elements */
+        margin-top: 20px;
+      }
+
+      #waypoint-form label {
+        font-weight: bold;
+      }
+
+      #waypoint-form input[type="text"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        width: 150px; /* Set a fixed width for the inputs */
+      }
+
+      #waypoint-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #waypoint-form button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mapid"></div>
+    <br />
+
+    <div id="locationStatus"><h1>Finding your location...</h1></div>
+
+    <div id="currentLocation">Current Location: Not yet determined.</div>
+
+    <br />
+
+    <div id="waypoint-form">
+      <label for="latitude">Latitude:</label>
+      <input type="text" id="latitude" name="latitude" />
+      <label for="longitude">Longitude:</label>
+      <input type="text" id="longitude" name="longitude" />
+      <button onclick="addCustomWaypoint()">Add Waypoint</button>
+    </div>
+
+    <div class="waypoint-list"></div>
+    <div>
+
+<button style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; transition-duration: 0.4s; cursor: pointer; border-radius: 8px;"> 
+            <a href="admin_dashboard.html" style="color: inherit; text-decoration: none;">Admin Dashboard</a>
+          </button>
+          
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      var waypoints = [];
+      var map = L.map("mapid").setView([23.684994, 90.356331], 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
+
+      var currentLocationMarker;
+      var pathPolylines = [];
+
+      function placeCurrentLocationMarker(latlng) {
+        if (currentLocationMarker) {
+          currentLocationMarker.setLatLng(latlng);
+        } else {
+          currentLocationMarker = L.marker(latlng, {
+            zIndexOffset: 1000,
+          }).addTo(map);
+        }
+        map.panTo(latlng);
+        updateWaypointsDisplay();
+      }
+
+      function getCurrentLocation() {
+        if (!navigator.geolocation) {
+          alert("Geolocation is not supported by your browser");
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            var latlng = L.latLng(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+            placeCurrentLocationMarker(latlng);
+            drawPath();
+            document.getElementById("locationStatus").style.display = "none";
+          },
+          function (error) {
+            alert("Unable to retrieve your location due to " + error.message);
+            document.getElementById("locationStatus").innerText =
+              "Unable to find your location.";
+          }
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        getCurrentLocation();
+      });
+      function placeCurrentLocationMarker(latlng) {
+        if (currentLocationMarker) {
+          currentLocationMarker.setLatLng(latlng);
+        } else {
+          currentLocationMarker = L.marker(latlng, {
+            zIndexOffset: 1000,
+          }).addTo(map);
+        }
+        map.panTo(latlng);
+        updateWaypointsDisplay();
+        drawPath();
+
+        // Update the current location display
+        document.getElementById("currentLocation").innerHTML =
+          "Current Location: " +
+          latlng.lat.toFixed(5) +
+          ", " +
+          latlng.lng.toFixed(5);
+      }
+
+      map.on("click", function onMapClick(e) {
+        var newWaypoint = { lat: e.latlng.lat, lng: e.latlng.lng };
+        waypoints.push(newWaypoint);
+        updateWaypointsDisplay();
+        drawPath();
+      });
+
+      function addCustomWaypoint() {
+        // Retrieve and parse latitude and longitude values
+        var lat = parseFloat(document.getElementById("latitude").value);
+        var lng = parseFloat(document.getElementById("longitude").value);
+
+        // Validate the coordinates
+        if (
+          isNaN(lat) ||
+          lat < -90 ||
+          lat > 90 ||
+          isNaN(lng) ||
+          lng < -180 ||
+          lng > 180
+        ) {
+          alert("Please enter valid latitude and longitude values.");
+          return;
+        }
+
+        // Prompt for additional waypoint details
+        var detail = prompt(
+          "Enter details for this waypoint (e.g., 'Survey' or 'Deliver Aid'):",
+          "Survey"
+        );
+        if (!detail) {
+          return; // Exit if no detail is provided
+        }
+
+        // Create a new waypoint object and marker
+        var newWaypoint = {
+          lat: lat,
+          lng: lng,
+          detail: detail,
+          marker: L.marker([lat, lng], {
+            title: detail,
+          })
+            .addTo(map)
+            .bindPopup(detail), // Add marker to the map
+        };
+
+        // Push the new waypoint into the waypoints array
+        waypoints.push(newWaypoint);
+
+        // Call functions to update the waypoints display list and redraw the path
+        updateWaypointsDisplay();
+        drawPath();
+
+        // Optionally clear the input fields after adding the waypoint
+        document.getElementById("latitude").value = "";
+        document.getElementById("longitude").value = "";
+      }
+
+      function updateWaypointsDisplay() {
+        var waypointList = document.querySelector(".waypoint-list");
+        waypointList.innerHTML = "";
+        if (currentLocationMarker) {
+          var currentLatLng = currentLocationMarker.getLatLng();
+          waypoints.forEach(function (wp, index) {
+            var waypointLatLng = L.latLng(wp.lat, wp.lng);
+            var distance = currentLatLng.distanceTo(waypointLatLng) / 1000;
+            distance = distance.toFixed(2);
+            waypointList.innerHTML +=
+              "<li>Waypoint " +
+              (index + 1) +
+              ": " +
+              wp.lat +
+              ", " +
+              wp.lng +
+              ". It is " +
+              distance +
+              " km away</li>";
+          });
+        }
+      }
+
+      function drawPath() {
+        pathPolylines.forEach(function (polyline) {
+          map.removeLayer(polyline);
+        });
+        pathPolylines = [];
+
+        if (currentLocationMarker) {
+          var currentLatLng = currentLocationMarker.getLatLng();
+
+          waypoints.forEach(function (point) {
+            var waypointLatLng = L.latLng(point.lat, point.lng);
+            var polyline = L.polyline([currentLatLng, waypointLatLng], {
+              color: "red",
+            });
+            polyline.addTo(map);
+            pathPolylines.push(polyline);
+          });
+
+          if (waypoints.length > 0) {
+            var group = new L.featureGroup(pathPolylines);
+            map.fitBounds(group.getBounds());
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
